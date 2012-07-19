@@ -14,7 +14,6 @@ module RSpecRailsMatchers
         when String
           str_or_array
         when Array
-          puts str_or_array[1..-1].inspect
           sprintf str_or_array[0], *prettify(str_or_array[1..-1])
         else
           raise ArgumentError, "Message#error expects a String or Array"
