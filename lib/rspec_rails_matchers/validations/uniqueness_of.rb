@@ -26,7 +26,8 @@ module RSpecRailsMatchers
           end
           
           def create_duplicate_record( model, attr, scope )
-            m = model.class.new(attr => 'foobar')
+            m = model.class.new
+            m.send("#{attr}=", 'foobar')
             m.send("#{scope}=", 11) if scope
             m.save(:validate => false)
             m
